@@ -14,7 +14,10 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  if a == b && a == c
+  args = [a, b, c].sort!
+  raise TriangleError if args[0] + args[1] <= args[2] || args[0] <= 0
+
+  if a == b && b == c
     :equilateral
   elsif a == b || b == c || c == a
     :isosceles
